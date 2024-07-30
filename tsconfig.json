@@ -1,0 +1,29 @@
+{
+  "extends": "./tsconfig.paths.json",
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve"
+  },
+  "include": ["src", "craco.config.ts", "test/jest", "__tests__"],
+  "exclude": [
+    "src/stores/AppStore.ts",
+    "src/stores/SnowflakeCutieStore.ts",
+    "src/stores/SnowflakeStore.ts",
+    "src/stores/SnowflakeUserStore.ts",
+    "src/stores/SnowflakeWarehouseStore.ts"
+  ]
+}
