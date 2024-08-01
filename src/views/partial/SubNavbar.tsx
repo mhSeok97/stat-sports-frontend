@@ -29,10 +29,7 @@ export const SubNavbar = observer(() => {
   const subNavbarColor = appStore.selectedtheme === 'dark' ? 'bg-gray-600' : 'bg-blue-900'
   const activeItem = 'text-gray-600 dark:text-gray-300 border-gray-300'
 
-  const selectedLanguage = languages.find((lang) => lang.value === appStore.selectedLanguage)
-
   const handelMenuClick = (menu: string) => {
-    console.log(menu)
     navigate(`${menu}`)
   }
 
