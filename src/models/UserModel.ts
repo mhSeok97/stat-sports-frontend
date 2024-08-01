@@ -1,12 +1,9 @@
 import { types } from 'mobx-state-tree'
 
-export const User = types.model('User', {
-  CMPCode: types.string,
-  CMPName: types.string,
-  EMPNO: types.string,
-  EMPName: types.string,
-  DEPTName: types.string,
-  DEPTCode: types.string,
+export const User = types.model({
+  id: types.identifier,
+  email: types.optional(types.string, ''),
+  name: types.optional(types.string, ''),
 })
 
 export const DefaultUser = () => {
@@ -21,7 +18,7 @@ export const DefaultUser = () => {
 }
 
 export const DatahubUser = types
-  .model('DatahubUser', {
+  .model({
     empID: types.optional(types.string, ''),
     no: types.optional(types.string, ''),
     name: types.optional(types.string, ''),
