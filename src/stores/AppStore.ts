@@ -1,8 +1,10 @@
 import { types } from 'mobx-state-tree'
 import { User } from '@models/UserModel'
+import { SoccerStore } from './SoccerStore'
 
 export const AppStore = types
   .model({
+    soccerStore: SoccerStore,
     user: types.optional(types.maybeNull(User), null),
     isLogined: types.optional(types.boolean, false),
     selectedLanguage: types.optional(types.enumeration('Language', ['english_us', 'english_uk', 'korean']), 'english_uk'),

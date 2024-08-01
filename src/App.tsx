@@ -3,12 +3,15 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Layout from '@views/home/Layout'
 import Main from '@views/home/Main'
 import { AppStore } from '@stores/AppStore'
+import { SoccerStore } from '@stores/SoccerStore'
 import { useCreateStore, useProvider } from 'mobx-store-provider'
 import { SoccerView } from '@views/home/soccer/SoccerView'
 import { BasketballView } from '@views/home/basketball/BasketballView'
 
 const App = () => {
-  const appStore = useCreateStore(AppStore)
+  const soccerStore = useCreateStore(SoccerStore)
+  const appStore = useCreateStore(AppStore, { soccerStore: soccerStore })
+
   const AppProvider = useProvider(AppStore)
 
   return (
