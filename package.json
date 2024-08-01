@@ -22,6 +22,7 @@
     "react": "^18.3.1",
     "react-circle-flags": "^0.0.20",
     "react-cookie": "^7.2.0",
+    "react-day-picker": "^9.0.6",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.25.1",
