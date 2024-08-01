@@ -27,7 +27,18 @@ export const SubNavbar = observer(() => {
   ]
 
   const subNavbarColor = appStore.selectedtheme === 'dark' ? 'bg-gray-600' : 'bg-blue-900'
-  const activeItem = 'text-gray-600 dark:text-gray-300 border-gray-300'
+  const settingsMenuColor =
+    appStore.selectedtheme === 'dark'
+      ? 'absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-gray-800 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'
+      : 'absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white-900 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'
+
+  const settingsMemuLanguageTextColor =
+    appStore.selectedtheme === 'dark' ? 'text-sm text-gray-300 hover:text-gray-400' : 'text-sm text-gray-900 hover:text-gray-900'
+
+  const settingsMemuThemeTextColor =
+    appStore.selectedtheme === 'dark' ? 'ms-2 text-sm font-medium text-gray-300' : 'ms-2 text-sm font-medium text-gray-900'
+
+  const activeItem = 'text-gray-200 border-b-gray-200 border-b-2'
 
   const handelMenuClick = (menu: string) => {
     navigate(`${menu}`)
@@ -70,10 +81,10 @@ export const SubNavbar = observer(() => {
 
   return (
     <div className={subNavbarColor}>
-      <ul className="container flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+      <ul className="container flex flex-wrap -mb-px text-sm font-medium text-center text-gray-400 dark:text-gray-400">
         <li className="me-4">
           <div
-            className={`inline-flex items-center justify-center p-2 border-b-4 border-transparent rounded-t-lg hover:text-gray-600 dark:hover:text-gray-300 hover:cursor-pointer group ${
+            className={`inline-flex items-center justify-center p-2 border-transparent rounded-t-lg hover:text-gray-300 hover:cursor-pointer group ${
               location.pathname.includes('soccer') && activeItem
             }`}
             onClick={() => {
@@ -88,7 +99,7 @@ export const SubNavbar = observer(() => {
         </li>
         <li className="me-4">
           <div
-            className={`inline-flex items-center justify-center p-2 border-b-4 border-transparent rounded-t-lg hover:text-gray-600 dark:hover:text-gray-300 hover:cursor-pointer group ${
+            className={`inline-flex items-center justify-center p-2 border-transparent rounded-t-lg hover:text-gray-300 hover:cursor-pointer group ${
               location.pathname.includes('basketball') && activeItem
             }`}
             onClick={() => {
@@ -105,7 +116,7 @@ export const SubNavbar = observer(() => {
           <div className="settings-icon">
             <button
               onClick={handelSettingsClick}
-              className="inline-flex items-center justify-center p-4 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
+              className="inline-flex items-center justify-center p-4 border-transparent rounded-t-lg text-gray-400 hover:text-gray-200 group"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
                 <path
@@ -117,19 +128,13 @@ export const SubNavbar = observer(() => {
             </button>
 
             {isOpenSettingsMenu && (
-              <div
-                className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-gray-700 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none "
-                role="menu"
-                aria-orientation="vertical"
-                aria-labelledby="user-menu-button"
-                tabIndex={-1}
-              >
+              <div className={settingsMenuColor} role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabIndex={-1}>
                 {languages
                   .filter((lang) => lang.value === appStore.selectedLanguage)
                   .map((lang) => {
                     return (
                       <div
-                        className="block px-4 py-2 text-sm text-white-700 hover:text-gray-500 hover:cursor-pointer"
+                        className={`block px-4 py-2 hover:cursor-pointer ${isOpenLanguageDropdown && 'shadow'}`}
                         role="menuitem"
                         tabIndex={-1}
                         id="user-menu-item-0"
@@ -138,7 +143,7 @@ export const SubNavbar = observer(() => {
                         <div className="flex items-center justify-between space-x-2" onClick={toggleDropdown}>
                           <div className="flex items-center space-x-2">
                             <CircleFlag countryCode={lang.code} style={{ height: '25px' }} />
-                            <div>{lang.label}</div>
+                            <div className={settingsMemuLanguageTextColor}>{lang.label}</div>
                           </div>
                           {!isOpenLanguageDropdown ? <MdArrowDropDown size={20} /> : <MdArrowDropUp size={20} />}
                         </div>
@@ -151,7 +156,7 @@ export const SubNavbar = observer(() => {
                     .map((lang) => {
                       return (
                         <div
-                          className="block px-4 py-2 text-sm text-white-700 hover:text-gray-500 hover:cursor-pointer"
+                          className="block px-4 py-2 hover:cursor-pointer"
                           role="menuitem"
                           tabIndex={-1}
                           id="user-menu-item-0"
@@ -164,7 +169,7 @@ export const SubNavbar = observer(() => {
                             }}
                           >
                             <CircleFlag countryCode={lang.code} style={{ height: '25px' }} />
-                            <div>{lang.label}</div>
+                            <div className={settingsMemuLanguageTextColor}>{lang.label}</div>
                           </div>
                         </div>
                       )
@@ -188,7 +193,7 @@ export const SubNavbar = observer(() => {
                         }}
                       />
                     )}
-                    <label htmlFor="default-radio-2" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                    <label htmlFor="default-radio-2" className={settingsMemuThemeTextColor}>
                       Dark
                     </label>
                   </div>
@@ -207,7 +212,7 @@ export const SubNavbar = observer(() => {
                         }}
                       />
                     )}
-                    <label htmlFor="purple-radio" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300  ">
+                    <label htmlFor="purple-radio" className={settingsMemuThemeTextColor}>
                       Light
                     </label>
                   </div>

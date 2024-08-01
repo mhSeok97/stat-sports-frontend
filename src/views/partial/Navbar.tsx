@@ -82,7 +82,7 @@ export const Navbar = observer(() => {
                 </a> */}
               </div>
               <div className="col-span-6 flex justify-center">
-                <div className="relative w-full max-w-md">
+                <div className="relative w-full max-w-md" style={{ width: '360px', height: '40px' }}>
                   <input
                     type="text"
                     className={`w-full text-white rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 ${searchInputColor}`}
@@ -108,10 +108,10 @@ export const Navbar = observer(() => {
               </div>
             </div>
           </div>
-          {/* <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <button
               type="button"
-              className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+              className="relative rounded-full p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 border-white"
             >
               <span className="absolute -inset-1.5"></span>
               <span className="sr-only">View notifications</span>
@@ -153,7 +153,7 @@ export const Navbar = observer(() => {
                 </div>
               )}
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
 
