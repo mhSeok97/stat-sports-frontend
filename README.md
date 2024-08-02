@@ -24,6 +24,8 @@ This project is a React-based web application with TypeScript, Tailwind CSS, and
 - Language selection with country flags
 - Dynamic theme switching (dark and light modes)
 - Custom radio buttons with conditional styling
+- Integration with Live Score API (https://live-score-api.com/football-api) for football data
+- Comprehensive database schema for managing football statistics
 
 ## Installation
 
@@ -44,3 +46,15 @@ npm start
 ```
 
 Open http://localhost:3000 to view it in the browser.
+
+
+## API Integration
+
+The application integrates with the Live Score API (https://live-score-api.com/football-api) to fetch real-time football data. The following endpoints are commonly used:
+- Leagues: Fetches information about various football leagues.
+- Teams: Fetches information about teams within a league.
+- Matches: Fetches information about upcoming, ongoing, and past matches.
+- Player Statistics: Fetches detailed statistics for individual players.
+
+To use the API, ensure you have an API key and configure it in your environment variables or project settings.
+
