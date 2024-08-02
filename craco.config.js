@@ -13,6 +13,13 @@ module.exports = {
       return webpackConfig
     },
   },
+  style: {
+    sass: {
+      loaderOptions: (sassLoaderOptions, { env, paths }) => {
+        return sassLoaderOptions
+      },
+    },
+  },
   plugins: [
     {
       plugin: CracoAlias,

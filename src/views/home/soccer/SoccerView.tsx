@@ -1,7 +1,6 @@
 import { observer } from 'mobx-react-lite'
 import React from 'react'
 import { DatePicker } from './partial/DatePicker'
-import '../soccer/css/DatePicker.scss'
 
 export const SoccerView = observer(() => {
   return (

@@ -1,4 +1,4 @@
-import '../css/DatePicker.scss'
+import '../styles/DatePicker.scss'
 
 import { observer } from 'mobx-react-lite'
 import React, { useState } from 'react'
