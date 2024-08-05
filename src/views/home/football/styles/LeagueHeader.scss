@@ -1,0 +1,19 @@
+.league-header-content {
+  padding: 20px 10px 20px 10px;
+  display: flex;
+
+  .league-header-content-logo {
+    width: 100px;
+    height: 100px;
+    background-color: #2d3748;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .league-header-content-description {
+    color: white;
+
+    font-size: 30px;
+  }
+}

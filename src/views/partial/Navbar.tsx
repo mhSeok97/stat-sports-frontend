@@ -170,6 +170,7 @@ export const Navbar = observer((props: Menus) => {
             {props.menus.map((menu) => {
               return (
                 <div
+                  key={menu.key}
                   className={`block rounded-md px-3 py-2 text-base font-medium ${mobileHoverColor} hover:text-white flex cursor-pointer text-white`}
                   onClick={() => {
                     handelMenuClick(menu.path)
