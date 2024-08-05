@@ -7,6 +7,7 @@ import { SoccerStore } from '@stores/SoccerStore'
 import { useCreateStore, useProvider } from 'mobx-store-provider'
 import { SoccerView } from '@views/home/soccer/SoccerView'
 import { BasketballView } from '@views/home/basketball/BasketballView'
+import { Error } from '@views/home/shared/Error'
 
 const App = () => {
   const soccerStore = useCreateStore(SoccerStore)
@@ -22,6 +23,7 @@ const App = () => {
             <Route index element={<Main />} />
             <Route path="/soccer" element={<SoccerView />} />
             <Route path="/basketball" element={<BasketballView />} />
+            <Route path="*" element={<Error />} />
           </Route>
         </Routes>
       </BrowserRouter>

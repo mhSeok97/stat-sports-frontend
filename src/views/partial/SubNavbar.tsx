@@ -2,8 +2,8 @@ import { observer } from 'mobx-react-lite'
 import React, { useEffect, useState } from 'react'
 import { AppStore } from '@stores/AppStore'
 import { useStore } from 'mobx-store-provider'
-import { PiSoccerBallFill } from 'react-icons/pi'
-import { PiBasketballFill } from 'react-icons/pi'
+// import { PiSoccerBallFill } from 'react-icons/pi'
+// import { PiBasketballFill } from 'react-icons/pi'
 import { CircleFlag } from 'react-circle-flags'
 import { MdArrowDropUp } from 'react-icons/md'
 import { MdArrowDropDown } from 'react-icons/md'
@@ -11,11 +11,11 @@ import { IoIosRadioButtonOn } from 'react-icons/io'
 import { IoIosRadioButtonOff } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
+import { Menus } from '@models/NavbarMenuModel'
 
-export const SubNavbar = observer(() => {
+export const SubNavbar = observer((props: Menus) => {
   const appStore = useStore(AppStore)
   const location = useLocation()
-
   const navigate = useNavigate()
   const [isOpenSettingsMenu, setIsOpenSettingsMenu] = useState<Boolean>(false)
   const [isOpenLanguageDropdown, setIsOpenLanguageDropdown] = useState<Boolean>(false)
@@ -32,13 +32,13 @@ export const SubNavbar = observer(() => {
       ? 'absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-gray-800 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'
       : 'absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white-900 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'
 
-  const settingsMemuLanguageTextColor =
+  const settingsMenuLanguageTextColor =
     appStore.selectedtheme === 'dark' ? 'text-sm text-gray-300 hover:text-gray-400' : 'text-sm text-gray-900 hover:text-gray-900'
 
-  const settingsMemuThemeTextColor =
+  const settingsMenuThemeTextColor =
     appStore.selectedtheme === 'dark' ? 'ms-2 text-sm font-medium text-gray-300' : 'ms-2 text-sm font-medium text-gray-900'
 
-  const activeItem = 'text-gray-200 border-b-gray-200 border-b-2'
+  const activeItem = 'text-gray-200'
 
   const handelMenuClick = (menu: string) => {
     navigate(`${menu}`)
@@ -80,38 +80,57 @@ export const SubNavbar = observer(() => {
   }, [])
 
   return (
-    <div className={subNavbarColor}>
-      <ul className="container flex flex-wrap -mb-px text-sm font-medium text-center text-gray-400 dark:text-gray-400">
-        <li className="me-4">
-          <div
-            className={`inline-flex items-center justify-center p-2 border-transparent rounded-t-lg hover:text-gray-300 hover:cursor-pointer group ${
-              location.pathname.includes('soccer') && activeItem
-            }`}
-            onClick={() => {
-              handelMenuClick('soccer')
-            }}
-          >
-            <div className="flex flex-col items-center">
-              <PiSoccerBallFill size={18} />
-              {appStore.selectedLanguage === 'korean' ? '축구' : 'Soccer'}
-            </div>
-          </div>
-        </li>
-        <li className="me-4">
-          <div
-            className={`inline-flex items-center justify-center p-2 border-transparent rounded-t-lg hover:text-gray-300 hover:cursor-pointer group ${
-              location.pathname.includes('basketball') && activeItem
-            }`}
-            onClick={() => {
-              handelMenuClick('basketball')
-            }}
-          >
-            <div className="flex flex-col items-center">
-              <PiBasketballFill size={18} />
-              {appStore.selectedLanguage === 'korean' ? '농구' : 'Basketball'}
-            </div>
-          </div>
-        </li>
+    <div className={`${subNavbarColor} hidden sm:block`}>
+      <ul className="container flex flex-wrap -mb-px text-sm font-medium text-center text-gray-400 dark:text-gray-400 h-52px">
+        {/*<li className="me-4">*/}
+        {/*  <div*/}
+        {/*    className={`inline-flex items-center justify-center p-2 border-transparent rounded-t-lg hover:text-gray-300 hover:cursor-pointer group ${*/}
+        {/*      location.pathname.endsWith('football') && activeItem*/}
+        {/*    }`}*/}
+        {/*    onClick={() => {*/}
+        {/*      handelMenuClick('football')*/}
+        {/*    }}*/}
+        {/*  >*/}
+        {/*    <div className="flex flex-col items-center">*/}
+        {/*      <PiSoccerBallFill size={18} />*/}
+        {/*      {appStore.selectedLanguage === 'korean' ? '축구' : 'Football'}*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*</li>*/}
+        {props.menus.map((menu) => {
+          return (
+            <li className={`me-${menu.margin_end}`} key={menu.key}>
+              <div
+                className={`inline-flex items-center justify-center pt-2 pr-2 pb-1 pl-2 border-transparent rounded-t-lg hover:text-gray-300 hover:cursor-pointer group ${
+                  location.pathname.includes(menu.name) && activeItem
+                }`}
+                onClick={() => {
+                  handelMenuClick(menu.path)
+                }}
+              >
+                <div className="flex flex-col items-center">
+                  <img src={menu.logo_url} alt="logo" style={{ width: '18px', height: '18px' }} />
+                  {appStore.selectedLanguage === 'korean' ? `${menu.label_ko}` : `${menu.label_en}`}
+                </div>
+              </div>
+            </li>
+          )
+        })}
+        {/*<li className="me-4">*/}
+        {/*  <div*/}
+        {/*    className={`inline-flex items-center justify-center p-2 border-transparent rounded-t-lg hover:text-gray-300 hover:cursor-pointer group ${*/}
+        {/*      location.pathname.includes('basketball') && activeItem*/}
+        {/*    }`}*/}
+        {/*    onClick={() => {*/}
+        {/*      handelMenuClick('basketball')*/}
+        {/*    }}*/}
+        {/*  >*/}
+        {/*    <div className="flex flex-col items-center">*/}
+        {/*      <PiBasketballFill size={18} />*/}
+        {/*      {appStore.selectedLanguage === 'korean' ? '농구' : 'Basketball'}*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*</li>*/}
         <li className="relative ml-auto">
           <div className="settings-icon">
             <button
@@ -143,7 +162,7 @@ export const SubNavbar = observer(() => {
                         <div className="flex items-center justify-between space-x-2" onClick={toggleDropdown}>
                           <div className="flex items-center space-x-2">
                             <CircleFlag countryCode={lang.code} style={{ height: '25px' }} />
-                            <div className={settingsMemuLanguageTextColor}>{lang.label}</div>
+                            <div className={settingsMenuLanguageTextColor}>{lang.label}</div>
                           </div>
                           {!isOpenLanguageDropdown ? <MdArrowDropDown size={20} /> : <MdArrowDropUp size={20} />}
                         </div>
@@ -169,7 +188,7 @@ export const SubNavbar = observer(() => {
                             }}
                           >
                             <CircleFlag countryCode={lang.code} style={{ height: '25px' }} />
-                            <div className={settingsMemuLanguageTextColor}>{lang.label}</div>
+                            <div className={settingsMenuLanguageTextColor}>{lang.label}</div>
                           </div>
                         </div>
                       )
@@ -193,7 +212,7 @@ export const SubNavbar = observer(() => {
                         }}
                       />
                     )}
-                    <label htmlFor="default-radio-2" className={settingsMemuThemeTextColor}>
+                    <label htmlFor="default-radio-2" className={settingsMenuThemeTextColor}>
                       Dark
                     </label>
                   </div>
@@ -212,7 +231,7 @@ export const SubNavbar = observer(() => {
                         }}
                       />
                     )}
-                    <label htmlFor="purple-radio" className={settingsMemuThemeTextColor}>
+                    <label htmlFor="purple-radio" className={settingsMenuThemeTextColor}>
                       Light
                     </label>
                   </div>

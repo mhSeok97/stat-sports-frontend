@@ -119,3 +119,7 @@ react-calendar__month-view__weekdays__weekday--weekend {
   border: 1px solid #6f48eb;
   border-radius: 100px;
 }
+
+.out-of-month {
+  visibility: hidden;
+}

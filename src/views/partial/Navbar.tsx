@@ -2,16 +2,19 @@ import { observer } from 'mobx-react-lite'
 import React, { useEffect, useState } from 'react'
 import { AppStore } from '@stores/AppStore'
 import { useStore } from 'mobx-store-provider'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { Menus } from '@models/NavbarMenuModel'
 
-export const Navbar = observer(() => {
+export const Navbar = observer((props: Menus) => {
   const appStore = useStore(AppStore)
   const navigate = useNavigate()
+  const location = useLocation()
   const [isOpenProfileMenu, setIsOpenProfileMenu] = useState<Boolean>(false)
   const [isOpenMobileMenu, setIsOpenMobileMenu] = useState<Boolean>(true)
 
   const navbarColor = appStore.selectedtheme === 'dark' ? 'bg-gray-800' : 'bg-blue-800'
   const searchInputColor = appStore.selectedtheme === 'dark' ? 'bg-gray-900' : 'bg-white'
+  const mobileHoverColor = appStore.selectedtheme === 'dark' ? 'hover:bg-gray-700' : 'hover:bg-white hover:opacity-50'
 
   const handelProfileClick = () => {
     setIsOpenProfileMenu(!isOpenProfileMenu)
@@ -34,6 +37,10 @@ export const Navbar = observer(() => {
 
   const handelMainLogoClick = () => {
     navigate('')
+  }
+
+  const handelMenuClick = (menu: string) => {
+    navigate(`${menu}`)
   }
 
   useEffect(() => {
@@ -160,12 +167,21 @@ export const Navbar = observer(() => {
       <div className="sm:hidden" id="mobile-menu">
         {isOpenMobileMenu && (
           <div className="space-y-1 px-2 pb-3 pt-2">
-            {/* <a href="/" className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">
-              Dashboard
-            </a>
-            <a href="/" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">
-              Team
-            </a> */}
+            {props.menus.map((menu) => {
+              return (
+                <div
+                  className={`block rounded-md px-3 py-2 text-base font-medium ${mobileHoverColor} hover:text-white flex cursor-pointer text-white`}
+                  onClick={() => {
+                    handelMenuClick(menu.path)
+                  }}
+                >
+                  <img src={menu.logo_url} alt="logo" style={{ width: '18px', height: '18px', marginRight: '15px' }} />
+                  <span className={`${location.pathname.includes(menu.name) ? 'text-white' : 'text-gray-300'}`}>
+                    {appStore.selectedLanguage === 'korean' ? `${menu.label_ko}` : `${menu.label_en}`}
+                  </span>
+                </div>
+              )
+            })}
           </div>
         )}
       </div>
