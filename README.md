@@ -50,7 +50,7 @@ Open http://localhost:3000 to view it in the browser.
 
 ## API Integration
 
-The application integrates with the Live Score API (https://live-score-api.com/football-api) to fetch real-time football data. The following endpoints are commonly used:
+The application integrates with the Live Score API (https://live-score-api.com/football-api, https://dashboard.api-football.com/) to fetch real-time football data. The following endpoints are commonly used:
 - Leagues: Fetches information about various football leagues.
 - Teams: Fetches information about teams within a league.
 - Matches: Fetches information about upcoming, ongoing, and past matches.
