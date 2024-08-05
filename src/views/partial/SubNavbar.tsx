@@ -2,8 +2,6 @@ import { observer } from 'mobx-react-lite'
 import React, { useEffect, useState } from 'react'
 import { AppStore } from '@stores/AppStore'
 import { useStore } from 'mobx-store-provider'
-// import { PiSoccerBallFill } from 'react-icons/pi'
-// import { PiBasketballFill } from 'react-icons/pi'
 import { CircleFlag } from 'react-circle-flags'
 import { MdArrowDropUp } from 'react-icons/md'
 import { MdArrowDropDown } from 'react-icons/md'
@@ -82,21 +80,6 @@ export const SubNavbar = observer((props: Menus) => {
   return (
     <div className={`${subNavbarColor} hidden sm:block`}>
       <ul className="container flex flex-wrap -mb-px text-sm font-medium text-center text-gray-400 dark:text-gray-400 h-52px">
-        {/*<li className="me-4">*/}
-        {/*  <div*/}
-        {/*    className={`inline-flex items-center justify-center p-2 border-transparent rounded-t-lg hover:text-gray-300 hover:cursor-pointer group ${*/}
-        {/*      location.pathname.endsWith('football') && activeItem*/}
-        {/*    }`}*/}
-        {/*    onClick={() => {*/}
-        {/*      handelMenuClick('football')*/}
-        {/*    }}*/}
-        {/*  >*/}
-        {/*    <div className="flex flex-col items-center">*/}
-        {/*      <PiSoccerBallFill size={18} />*/}
-        {/*      {appStore.selectedLanguage === 'korean' ? '축구' : 'Football'}*/}
-        {/*    </div>*/}
-        {/*  </div>*/}
-        {/*</li>*/}
         {props.menus.map((menu) => {
           return (
             <li className={`me-${menu.margin_end}`} key={menu.key}>
@@ -116,21 +99,6 @@ export const SubNavbar = observer((props: Menus) => {
             </li>
           )
         })}
-        {/*<li className="me-4">*/}
-        {/*  <div*/}
-        {/*    className={`inline-flex items-center justify-center p-2 border-transparent rounded-t-lg hover:text-gray-300 hover:cursor-pointer group ${*/}
-        {/*      location.pathname.includes('basketball') && activeItem*/}
-        {/*    }`}*/}
-        {/*    onClick={() => {*/}
-        {/*      handelMenuClick('basketball')*/}
-        {/*    }}*/}
-        {/*  >*/}
-        {/*    <div className="flex flex-col items-center">*/}
-        {/*      <PiBasketballFill size={18} />*/}
-        {/*      {appStore.selectedLanguage === 'korean' ? '농구' : 'Basketball'}*/}
-        {/*    </div>*/}
-        {/*  </div>*/}
-        {/*</li>*/}
         <li className="relative ml-auto">
           <div className="settings-icon">
             <button
