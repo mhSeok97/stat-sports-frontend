@@ -9,11 +9,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 24px;
   }
 
   .league-header-content-description {
-    color: white;
 
-    font-size: 30px;
+
+    .league-header-content-description-name {
+      color: white;
+      font-size: 30px;
+    }
   }
 }

@@ -8,4 +8,5 @@ export const League = types.model({
   path: types.optional(types.string, ''),
   margin_end: types.optional(types.string, ''),
   logo_url: types.optional(types.string, ''),
+  country: types.optional(types.string, ''),
 })

@@ -17,7 +17,9 @@ export const LeagueHeader = observer(() => {
           <div className="league-header-content-logo">
             <img src={footballStore.selectedLeague.logo_url} alt="logo" style={{ width: '76px' }} />
           </div>
-          <div className="league-header-content-description">{footballStore.selectedLeague.name}</div>
+          <div className="league-header-content-description">
+            <h2 className="league-header-content-description-name">{footballStore.selectedLeague.name}</h2>
+          </div>
         </div>
       )}
     </div>

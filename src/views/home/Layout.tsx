@@ -19,6 +19,7 @@ const Layout = observer(() => {
       path: 'football/premier-league',
       logo_url: '/images/premier_league_logo.png',
       margin_end: '4',
+      country: 'england',
     },
     {
       key: 1,
@@ -28,6 +29,7 @@ const Layout = observer(() => {
       path: 'football/laliga',
       logo_url: '/images/laliga_logo.png',
       margin_end: '4',
+      country: 'spain',
     },
     {
       key: 2,
@@ -37,6 +39,7 @@ const Layout = observer(() => {
       path: 'football/bundesliga',
       logo_url: '/images/bundesliga_logo.png',
       margin_end: '4',
+      country: 'germany',
     },
     {
       key: 3,
@@ -46,6 +49,7 @@ const Layout = observer(() => {
       path: 'football/serie-a',
       logo_url: '/images/serie_a_logo.png',
       margin_end: '4',
+      country: 'italy',
     },
     {
       key: 4,
@@ -55,6 +59,7 @@ const Layout = observer(() => {
       path: 'football/ligue-1',
       logo_url: '/images/ligue1_logo.png',
       margin_end: '4',
+      country: 'france',
     },
     {
       key: 5,
@@ -64,6 +69,7 @@ const Layout = observer(() => {
       path: 'football/uefa-champions-league',
       logo_url: '/images/champions_league_logo.png',
       margin_end: '4',
+      country: null,
     },
     {
       key: 6,
@@ -73,6 +79,7 @@ const Layout = observer(() => {
       path: 'football/uefa-europa-league',
       logo_url: '/images/europa_league_logo.png',
       margin_end: '4',
+      country: null,
     },
     {
       key: 7,
@@ -82,6 +89,7 @@ const Layout = observer(() => {
       path: 'basketball/nba',
       logo_url: '/images/nba_logo.png',
       margin_end: '4',
+      country: 'united state america',
     },
   ]
 
