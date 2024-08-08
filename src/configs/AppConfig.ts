@@ -5,9 +5,7 @@ export type Feature = 'MONOLAKE' | 'CUTIE' | 'DATAHUB'
 
 export class AppConfig {
   static readonly ENV: ENV = process.env.REACT_APP_ENV ? (process.env.REACT_APP_ENV as ENV) : 'DEVELOPMENT'
-  static readonly DATAHUB_API: string | undefined = process.env.REACT_APP_DATAHUB_API_URL
-  static readonly DATAHUB_CONSOLE_API: string | undefined = process.env.REACT_APP_DATAHUB_CONSOLE_API_URL
-  static readonly DATAHUB_GONGJI_API: string | undefined = process.env.REACT_APP_DATAHUB_GONGJI_API_URL
+  static readonly STAT_SPORTS_API: string | undefined = process.env.REACT_APP_STATKICK_API_URL
 
   static hasFeature = (f: Feature) => {
     const featureString = process.env.REACT_APP_FEATURES

@@ -1,5 +1,6 @@
 import { types } from 'mobx-state-tree'
 import { League } from '@models/FootballModel'
+import FootballRepository from '@repositories/FootballRepository'
 
 export const FootballStore = types
   .model({
@@ -9,9 +10,11 @@ export const FootballStore = types
   })
 
   .actions((self) => ({
-    async afterCreate() {},
+    async afterCreate() {
+      const leagues = FootballRepository.getLeagues()
+      console.log(leagues)
+    },
     setSelectedLeague: (leagueName: string) => {
-      // get league data
       if (leagueName === 'premier-league')
         self.selectedLeague = {
           id: 0,
