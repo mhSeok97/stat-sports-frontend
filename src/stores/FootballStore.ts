@@ -11,8 +11,8 @@ export const FootballStore = types
 
   .actions((self) => ({
     async afterCreate() {
-      const leagues = FootballRepository.getLeagues()
-      console.log(leagues)
+      console.log(await this.getLeagues())
+      console.log(await this.getTeams())
     },
     setSelectedLeague: (leagueName: string) => {
       if (leagueName === 'premier-league')
@@ -27,6 +27,9 @@ export const FootballStore = types
           country: 'england',
         }
     },
+    getLeagues: flow(function* () {
+      yield FootballRepository.getLeagues()
+    }),
     getTeams: flow(function* (leagueId?: number, seasonId?: number) {
       yield FootballRepository.getTeams(leagueId, seasonId)
     }),
