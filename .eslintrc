@@ -1,0 +1,19 @@
+{
+  "extends": ["plugin:react-hooks/recommended", "prettier", "plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["react", "@typescript-eslint", "simple-import-sort"],
+  "root": true,
+  "rules": {
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-unused-vars": ["error", { "ignoreRestSiblings": true }],
+    "react-hooks/exhaustive-deps": "error",
+    "react/display-name": "off",
+    "simple-import-sort/imports": "error",
+    "react/jsx-no-useless-fragment": ["error", { "allowExpressions": true }],
+    "@typescript-eslint/consistent-type-imports": ["error", { "fixStyle": "inline-type-imports" }],
+    "no-duplicate-imports": "error",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/ban-types": "off",
+    "quotes": ["error", "single"]
+  }
+}
