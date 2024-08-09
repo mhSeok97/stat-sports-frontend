@@ -1,9 +1,9 @@
-import { observer } from 'mobx-react-lite'
-import React, { useEffect, useState } from 'react'
+import { type Menus } from '@models/NavbarMenuModel'
 import { AppStore } from '@stores/AppStore'
+import { observer } from 'mobx-react-lite'
 import { useStore } from 'mobx-store-provider'
+import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { Menus } from '@models/NavbarMenuModel'
 
 export const Navbar = observer((props: Menus) => {
   const appStore = useStore(AppStore)

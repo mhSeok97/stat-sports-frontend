@@ -1,6 +1,6 @@
-import { types } from 'mobx-state-tree'
 import { League } from '@models/FootballModel'
 import FootballRepository from '@repositories/FootballRepository'
+import { flow, types } from 'mobx-state-tree'
 
 export const FootballStore = types
   .model({
@@ -27,5 +27,8 @@ export const FootballStore = types
           country: 'england',
         }
     },
+    getTeams: flow(function* (leagueId?: number, seasonId?: number) {
+      yield FootballRepository.getTeams(leagueId, seasonId)
+    }),
   }))
-  .views((self) => ({}))
+  .views(() => ({}))

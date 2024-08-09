@@ -1,10 +1,10 @@
 import '@views/home/football/styles/ReactCalendar.scss'
 
+import { AppStore } from '@stores/AppStore'
 import { observer } from 'mobx-react-lite'
+import { useStore } from 'mobx-store-provider'
 import React, { useState } from 'react'
 import Calendar from 'react-calendar'
-import { AppStore } from '@stores/AppStore'
-import { useStore } from 'mobx-store-provider'
 
 type Value = Date | null
 
@@ -28,7 +28,7 @@ export const DatePicker = observer(() => {
   }
 
   return (
-    <div className={`w-full max-w-sm mx-auto`}>
+    <div className={'w-full max-w-sm mx-auto'}>
       <Calendar
         onChange={(date) => handleChange(date as Date)}
         value={selectedDate}

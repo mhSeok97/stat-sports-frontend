@@ -1,10 +1,10 @@
-import { observer } from 'mobx-react-lite'
-import React from 'react'
+import { AppStore } from '@stores/AppStore'
 import { Navbar } from '@views/partial/Navbar'
 import { SubNavbar } from '@views/partial/SubNavbar'
-import { Outlet } from 'react-router-dom'
-import { AppStore } from '@stores/AppStore'
+import { observer } from 'mobx-react-lite'
 import { useStore } from 'mobx-store-provider'
+import React from 'react'
+import { Outlet } from 'react-router-dom'
 
 const Layout = observer(() => {
   const appStore = useStore(AppStore)

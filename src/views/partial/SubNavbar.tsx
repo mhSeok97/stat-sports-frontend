@@ -1,15 +1,12 @@
-import { observer } from 'mobx-react-lite'
-import React, { useEffect, useState } from 'react'
+import { type Menus } from '@models/NavbarMenuModel'
 import { AppStore } from '@stores/AppStore'
+import { observer } from 'mobx-react-lite'
 import { useStore } from 'mobx-store-provider'
+import React, { useEffect, useState } from 'react'
 import { CircleFlag } from 'react-circle-flags'
-import { MdArrowDropUp } from 'react-icons/md'
-import { MdArrowDropDown } from 'react-icons/md'
-import { IoIosRadioButtonOn } from 'react-icons/io'
-import { IoIosRadioButtonOff } from 'react-icons/io'
-import { useNavigate } from 'react-router-dom'
-import { useLocation } from 'react-router-dom'
-import { Menus } from '@models/NavbarMenuModel'
+import { IoIosRadioButtonOff,IoIosRadioButtonOn } from 'react-icons/io'
+import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export const SubNavbar = observer((props: Menus) => {
   const appStore = useStore(AppStore)

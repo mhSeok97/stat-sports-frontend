@@ -1,6 +1,6 @@
-import { types } from 'mobx-state-tree'
 import { User } from '@models/UserModel'
 import { FootballStore } from '@stores/FootballStore'
+import { types } from 'mobx-state-tree'
 
 export const AppStore = types
   .model({
@@ -12,7 +12,9 @@ export const AppStore = types
   })
 
   .actions((self) => ({
-    async afterCreate() {},
+    async afterCreate() {
+      console.info('create app store')
+    },
     setSelectedLanguage: (language: 'english_us' | 'english_uk' | 'korean') => {
       self.selectedLanguage = language
     },
@@ -20,4 +22,4 @@ export const AppStore = types
       self.selectedtheme = theme
     },
   }))
-  .views((self) => ({}))
+  .views(() => ({}))

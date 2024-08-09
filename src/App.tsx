@@ -1,13 +1,13 @@
-import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { AppStore } from '@stores/AppStore'
+import { FootballStore } from '@stores/FootballStore'
+import { BasketballView } from '@views/home/basketball/BasketballView'
+import { FootballView } from '@views/home/football/FootballView'
 import Layout from '@views/home/Layout'
 import Main from '@views/home/Main'
-import { AppStore } from '@stores/AppStore'
-import { useCreateStore, useProvider } from 'mobx-store-provider'
-import { FootballView } from '@views/home/football/FootballView'
-import { BasketballView } from '@views/home/basketball/BasketballView'
 import { Error } from '@views/home/shared/Error'
-import { FootballStore } from '@stores/FootballStore'
+import { useCreateStore, useProvider } from 'mobx-store-provider'
+import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 const App = () => {
   const footballStore = useCreateStore(FootballStore)

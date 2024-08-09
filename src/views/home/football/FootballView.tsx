@@ -1,8 +1,8 @@
-import { observer } from 'mobx-react-lite'
-import React from 'react'
-import { LeagueHeader } from '@views/home/football/partial/LeagueHeader'
-import { useStore } from 'mobx-store-provider'
 import { FootballStore } from '@stores/FootballStore'
+import { LeagueHeader } from '@views/home/football/partial/LeagueHeader'
+import { observer } from 'mobx-react-lite'
+import { useStore } from 'mobx-store-provider'
+import React from 'react'
 import { useParams } from 'react-router-dom'
 
 export const FootballView = observer(() => {

@@ -1,9 +1,9 @@
 import '@views/home/football/styles/LeagueHeader.scss'
 
-import { observer } from 'mobx-react-lite'
-import React from 'react'
-import { useStore } from 'mobx-store-provider'
 import { FootballStore } from '@stores/FootballStore'
+import { observer } from 'mobx-react-lite'
+import { useStore } from 'mobx-store-provider'
+import React from 'react'
 
 export const LeagueHeader = observer(() => {
   const footballStore = useStore(FootballStore)
