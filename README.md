@@ -58,3 +58,5 @@ The application integrates with the Live Score API (https://live-score-api.com/f
 
 To use the API, ensure you have an API key and configure it in your environment variables or project settings.
 
+## 문제해결
+- 컴포넌트 개발 시 여러 타입의 props를 받아야하는 경우 제네릭 컴포넌트를 사용하여 해결
